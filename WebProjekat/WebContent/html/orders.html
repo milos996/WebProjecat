@@ -1,0 +1,50 @@
+<div ng-controller="ordersController">
+<div class="container">
+<div class="row">
+<div class="col-lg-4 ml-auto">
+<h2 class="">Azuriranje porudzbina</h2>
+</div>
+<div class="col-lg-4 ml-auto">
+<a href="#/home" class="float-right " > Vrati se na pocetnu stranicu</a>
+</div>
+</div>
+
+<div class="row">
+<div class="col-lg-6">
+
+<div class="accordion" id="accordionExample" ng-repeat="o in orders | filter : {status : 1} " >
+	   <div class="card">
+		    <div class="card-header" id="headingOne">
+			            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{o.id}}" aria-expanded="false" ng-click="setCurrOrder(o)" >
+				      {{o.date}} | {{o.state}}
+				       </button>
+				          <button class="btn btn-outline-info float-right" ng-click="takeOrder(o)"> <img src="delivery-truck.png" alt="del" ></button>
+				          <button class="btn btn-outline-success float-right" ng-click="checkOrder(o)"> <img src="success.png" alt="succ" ></button>
+		  				 <button class="btn btn-outline-danger float-right" ng-click="cancelOrder(o)"> <img src="error.png" alt="er" ></button>
+		 	
+		    </div>
+		
+		    <div id="{{o.id}}" class="collapse"  data-parent="#accordionExample">
+			      <div class="card-body" >
+				       <div  class="list-group" id="listRest" ng-repeat="stav in o.articles ">
+					      <a id="{{stav.article.id}}{{stav.article.name}}" class=" disabled  list-group-item list-group-item-action" data-toggle="list" ng-click="" >
+					      {{stav.article.name}} : {{stav.kol}}
+					   	  </a>
+				  	  </div>
+			      </div>
+		    </div>
+	  </div>
+  </div>
+
+</div>
+<div class="col-lg-6">
+<div class="row">
+<order class="col-lg-12" />
+</div>
+<div class="row">
+<categories class="col-lg-12"/>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,236 @@
+<div class="accordion" id="catEx">
+  <div class="card" id="Domaca_kuhinja">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+         Domaca Kuhinja
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#catEx">
+      <div class="card-body">
+		      		<div class="accordion" id="accordionExample" ng-repeat="r in restaurants | filter : {status : 1 , categories: 'Domaca_kuhinja' } " >
+					   <div class="card">
+						    <div class="card-header justify-content-between" id="heading{{r.id}}{{r.name}}">
+							            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{r.categories}}{{r.id}}" aria-expanded="false">
+								       <div class="d-flex w-100 justify-content-between">
+									      <h5 class="mb-1">{{r.name}}</h5>
+									       <small>{{r.address}}</small>
+									    </div>
+									    <p class="mb-1">{{r.categories}}</p>
+								       </button>
+								      <button class="btn btn-outline-danger float-right" ng-click="setFavRest(r)"> <img src="heart.png" alt="fav" ></button>
+						    </div>
+						
+						    <div id="{{r.categories}}{{r.id}}" class="collapse" aria-labelledby="heading{{r.id}}{{r.name}}"  data-parent="#accordionExample">
+							      <div class="card-body" >
+								       <div  class="list-group" id="listRest" ng-repeat="a in r.offer | filter : {status : 1} ">
+									      <a id="{{a.id}}{{a.name}}" class="list-group-item list-group-item-action" data-toggle="list" ng-click="setCurrA(a)" >
+									      {{a.name}}
+									   	  </a>
+								  	  </div>
+							      </div>
+						    </div>
+					  </div>
+		 		 </div>      	
+      </div>
+    </div>
+  </div>
+  
+  <div id="Rostilj" class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+         Rostilj
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#catEx">
+      <div class="card-body">
+		      		<div class="accordion" id="accordionExample2" ng-repeat="r in restaurants | filter : {status : 1 , categories: 'Rostilj' } " >
+					   <div class="card">
+						    <div class="card-header" >
+							            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{r.categories}}{{r.id}}" aria-expanded="false" ng-click="setSelectedRes(r)" >
+								       <div class="d-flex w-100 justify-content-between">
+									      <h5 class="mb-1">{{r.name}}</h5>
+									       <small>{{r.address}}</small>
+									    </div>
+									    <p class="mb-1">{{r.categories}}</p>
+								       </button>
+								       <button class="btn btn-outline-danger float-right" ng-click="setFavRest(r)"> <img src="heart.png" alt="fav" ></button>
+						    </div>
+						
+						    <div id="{{r.categories}}{{r.id}}" class="collapse"  data-parent="#accordionExample2">
+							      <div class="card-body" >
+								       <div  class="list-group" id="listRest" ng-repeat="a in r.offer | filter : {status : 1} ">
+									      <a id="{{a.id}}{{a.name}}" class="list-group-item list-group-item-action" data-toggle="list" ng-click="setCurrA(a)" >
+									      {{a.name}}
+									   	  </a>
+								  	  </div>
+							      </div>
+						    </div>
+					  </div>
+		 		 </div>      	
+      </div>
+    </div>
+  </div>
+  
+  <div class="card" id="Kineski_restoran">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+         Kineski restoran
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#catEx">
+      <div class="card-body">
+		      		<div class="accordion" id="accordionExample3" ng-repeat="r in restaurants | filter : {status : 1 , categories: 'Kineski_restoran' } " >
+					   <div class="card">
+						    <div class="card-header" >
+							            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{r.categories}}{{r.id}}" aria-expanded="false" ng-click="setSelectedRes(r)" >
+								       <div class="d-flex w-100 justify-content-between">
+									      <h5 class="mb-1">{{r.name}}</h5>
+									       <small>{{r.address}}</small>
+									    </div>
+									    <p class="mb-1">{{r.categories}}</p>
+								       </button>
+								       <button class="btn btn-outline-danger float-right" ng-click="setFavRest(r)"> <img src="heart.png" alt="fav" ></button>
+						    </div>
+						
+						    <div id="{{r.categories}}{{r.id}}" class="collapse"  data-parent="#accordionExample3">
+							      <div class="card-body" >
+								       <div  class="list-group" id="listRest" ng-repeat="a in r.offer | filter : {status : 1} ">
+									      <a id="{{a.id}}{{a.name}}" class="list-group-item list-group-item-action" data-toggle="list" ng-click="setCurrA(a)" >
+									      {{a.name}}
+									   	  </a>
+								  	  </div>
+							      </div>
+						    </div>
+					  </div>
+		 		 </div>      	
+      </div>
+    </div>
+  </div>
+  
+  <div class="card" id="Indijski_restoran">
+    <div class="card-header" id="heading4">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
+         Indijski restoran
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#catEx">
+      <div class="card-body">
+		      		<div class="accordion" id="accordionExample4" ng-repeat="r in restaurants | filter : {status : 1 , categories: 'Indijski_restoran' } " >
+					   <div class="card">
+						    <div class="card-header"  >
+							            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{r.categories}}{{r.id}}" aria-expanded="false" ng-click="setSelectedRes(r)" >
+								       <div class="d-flex w-100 justify-content-between">
+									      <h5 class="mb-1">{{r.name}}</h5>
+									       <small>{{r.address}}</small>
+									    </div>
+									    <p class="mb-1">{{r.categories}}</p>
+								       </button>
+								       <button class="btn btn-outline-danger float-right" ng-click="setFavRest(r)"> <img src="heart.png" alt="fav" ></button>
+						    </div>
+						
+						    <div id="{{r.categories}}{{r.id}}" class="collapse"  data-parent="#accordionExample4">
+							      <div class="card-body" >
+								       <div  class="list-group" id="listRest" ng-repeat="a in r.offer | filter : {status : 1} ">
+									      <a id="{{a.id}}{{a.name}}" class="list-group-item list-group-item-action" data-toggle="list" ng-click="setCurrA(a)" >
+									      {{a.name}}
+									   	  </a>
+								  	  </div>
+							      </div>
+						    </div>
+					  </div>
+		 		 </div>      	
+      </div>
+    </div>
+  </div>
+  
+  <div class="card" id="Poslasticarnica">
+    <div class="card-header" id="heading5">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapse5">
+         Poslasticarnica
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#catEx">
+      <div class="card-body">
+		      		<div class="accordion" id="accordionExample5" ng-repeat="r in restaurants | filter : {status : 1 , categories: 'Poslasticarnica' } " >
+					   <div class="card">
+						    <div class="card-header"  >
+							            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{r.categories}}{{r.id}}" aria-expanded="false" ng-click="setSelectedRes(r)" >
+								       <div class="d-flex w-100 justify-content-between">
+									      <h5 class="mb-1">{{r.name}}</h5>
+									       <small>{{r.address}}</small>
+									    </div>
+									    <p class="mb-1">{{r.categories}}</p>
+								       </button>
+								       <button class="btn btn-outline-danger float-right" ng-click="setFavRest(r)"> <img src="heart.png" alt="fav" ></button>
+						    </div>
+						
+						    <div id="{{r.categories}}{{r.id}}" class="collapse"  data-parent="#accordionExample5">
+							      <div class="card-body" >
+								       <div  class="list-group" id="listRest" ng-repeat="a in r.offer | filter : {status : 1} ">
+									      <a id="{{a.id}}{{a.name}}" class="list-group-item list-group-item-action" data-toggle="list" ng-click="setCurrA(a)" >
+									      {{a.name}}
+									   	  </a>
+								  	  </div>
+							      </div>
+						    </div>
+					  </div>
+		 		 </div>      	
+      </div>
+    </div>
+  </div>
+  <div class="card" id="Picerija">
+    <div class="card-header" id="heading6">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
+         Picerija
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#catEx">
+      <div class="card-body">
+		      		<div class="accordion" id="accordionExample6" ng-repeat="r in restaurants | filter : {status : 1 , categories: 'Picerija' } " >
+					   <div class="card">
+						    <div class="card-header" >
+							            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{r.categories}}{{r.id}}" aria-expanded="false" ng-click="setSelectedRes(r)" >
+								       <div class="d-flex w-100 justify-content-between">
+									      <h5 class="mb-1">{{r.name}}</h5>
+									       <small>{{r.address}}</small>
+									    </div>
+									    <p class="mb-1">{{r.categories}}</p>
+								       </button>
+								       <button class="btn btn-outline-danger float-right" ng-click="setFavRest(r)"> <img src="heart.png" alt="fav" ></button>
+						    </div>
+						
+						    <div id="{{r.categories}}{{r.id}}" class="collapse"  data-parent="#accordionExample6">
+							      <div class="card-body" >
+								       <div  class="list-group" id="listRest" ng-repeat="a in r.offer | filter : {status : 1} ">
+									      <a id="{{a.id}}{{a.name}}" class="list-group-item list-group-item-action" data-toggle="list" ng-click="setCurrA(a)" >
+									      {{a.name}}
+									   	  </a>
+								  	  </div>
+							      </div>
+						    </div>
+					  </div>
+		 		 </div>      	
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  

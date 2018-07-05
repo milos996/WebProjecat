@@ -1,0 +1,46 @@
+<div ng-controller="restaurantController">
+<div class="container">
+<div class="row">
+<div class="col-lg-4 ml-auto">
+<h2 class="">Izmjena restorana</h2>
+</div>
+<div class="col-lg-4 ml-auto">
+<a href="#/home" class="float-right " > Vrati se na pocetnu stranicu</a>
+</div>
+</div>
+
+<div class="row">
+<div class="col-lg-8">
+<div class="col-lg-6">
+<div  class="list-group " ng-repeat="r in restaurants | filter : {status : 1} " >
+  <a id="{{r.id}}" class="list-group-item d-flex list-group-item-action mt-1 justify-content-between" ng-click="setSelectedRes(r)">
+   {{r.name}}
+    <span class="badge badge-primary badge-pill" title="Broj artikala" >{{r.offer.length}}</span>
+  </a>
+</div>
+</div>
+</div>
+<div class="col-lg-4">
+<form>
+   <input type="text" class="form-control" id="name" placeholder="Ime restorana" >
+   <input type="text" class="form-control" id="address" placeholder="Adresa restorana">
+ 	<select class="custom-select" id="categories">
+    <option value="Domaca_kuhinja" selected>Domaca kuhinja</option>
+    <option value="Rostilj">Rostilj</option>
+    <option value="Kineski_restoran">Kineski restoran</option>
+    <option value="Indijski_restoran">Indijski restoran</option>
+    <option value="Poslasticarnica">Poslasticarnica</option>
+    <option value="Picerija">Picerija</option>
+  	</select>
+  
+  <div class="btn-group mt-1" role="group" >
+  <button type="button" class="btn btn-primary" ng-click="addR()">Dodaj</button>
+  <button type="button" class="btn btn-success" ng-click="editR()">Izmjeni</button>
+  <button type="button" class="btn btn-danger" ng-click="deleteR()">Obrisi</button>
+</div>
+  <button class="btn btn-outline-primary mt-1 ml-3	" ng-click="clearFields()">Ocisti polja</button>
+</form>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,46 @@
+<div ng-controller="vehicleController">
+<div class="container">
+<div class="row">
+<div class="col-lg-4 ml-auto">
+<h2 class="">Izmjena vozila</h2>
+</div>
+<div class="col-lg-4 ml-auto">
+<a href="#/home" class="float-right " > Vrati se na pocetnu stranicu</a>
+</div>
+</div>
+
+<div class="row">
+<div class="col-lg-8">
+<div class="col-lg-6">
+<div  class="list-group " ng-repeat="v in vehicles | filter : {status : 1} " >
+  <a id="{{v.id}}" class="list-group-item d-flex list-group-item-action mt-1 justify-content-between" ng-click="setSelectedVehicle(v)">
+   {{v.mark}} {{v.model}} {{v.categories}}
+  </a>
+</div>
+</div>
+</div>
+<div class="col-lg-4">
+<form>
+   <input type="text" class="form-control" id="mark" placeholder="Marka" >
+   <input type="text" class="form-control" id="model" placeholder="Model">
+ 	<select class="custom-select" id="categories">
+    <option value="bicikl" selected>Bicikl</option>
+    <option value="skuter">Skuter</option>
+    <option value="automobil">Automobil</option>
+  	</select>
+  	 <input type="text" class="form-control" id="regN" placeholder="Registarska oznaka">
+  	 <input type="number" class="form-control" id="yearP" placeholder="Godina proizvodnje">
+  	 <label>Vozilo u upotrebi</label>
+ 	 <textarea class="form-control" id="des" rows="3" placeholder="Napomena"></textarea>  	
+ 
+  <div class="btn-group mt-1" role="group" >
+  <button type="button" class="btn btn-primary" ng-click="addV()">Dodaj</button>
+  <button type="button" class="btn btn-success" ng-click="editV()">Izmjeni</button>
+  <button type="button" class="btn btn-danger" ng-click="deleteV()">Obrisi</button>
+</div>
+  <button class="btn btn-outline-primary mt-1 ml-3	" ng-click="clearFields()">Ocisti polja</button>
+</form>
+</div>
+</div>
+</div>
+</div>

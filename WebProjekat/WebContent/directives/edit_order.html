@@ -1,0 +1,39 @@
+<h3>Porudzbine</h3>
+		<div>
+		<form>
+		<input id="article" class="form-control" type="text" placeholder="Jelo/Pice" readonly>
+		<input id="kol" class="form-control" type="number" placeholder="Kolicina" >
+		 <button class="btn btn-primary" ng-click="addBucket()" >Dodaj u korpu</button>
+		 <div id="adminDiv">
+		 <h5>Kupac:</h5>
+		 <select class="custom-select" id="buyer">
+		 </select>
+		 <h5>Dostavljac:</h5>
+		<select class="custom-select" id="deliver">
+		</select>
+		<h5>Vozilo dostave:</h5>
+		<select class="custom-select" id="vehicleSel">
+		</select>
+		</div>
+		</form>
+		</div>
+		<div>
+			<h4>Korpa</h4>
+			<div class="btn-group mt-1 mb-1" role="group" >
+			  <button type="button" class="btn btn-primary" ng-click="order()">Poruci</button>
+			  <button type="button" class="btn btn-warning" ng-click="deleteArticle()">Obrisi artikl</button>
+			  <button type="button" class="btn btn-danger" ng-click="abort()">Otkazi</button>
+			</div>
+			 <div  class="list-group mt-1" id="listArticles" ng-repeat="a in stavke ">
+				      <a id="a.article.id" class="list-group-item list-group-item-action" data-toggle="list" >
+				      {{a.article.name}}
+				       <span class="badge badge-primary badge-pill" title="Broj artikala" >{{a.kol}}</span>
+ 
+				   	  </a>
+			 </div>
+			 <textarea class="form-control" id="notice" rows="3" placeholder="Napomena"></textarea>
+			 <div id="btnDiv">
+			   <button type="button" class="btn btn-danger" ng-click="deleteOrder()">Obrisi narudzbu</button>
+			   <button type="button" class="btn btn-warning" ng-click="editOrder()">Izmjeni narudzbu</button>
+			 </div>
+		</div>

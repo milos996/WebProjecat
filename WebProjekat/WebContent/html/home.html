@@ -1,0 +1,114 @@
+<div id="homeDiv" ng-controller="homeController">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light mx-5" >
+  	
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#/home">Pocetna stranica <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Izmjena
+        </a>
+        <div id="izmjena" class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#/restaurant">Restorana</a>
+          <a class="dropdown-item" href="#/articles">Artikala</a>
+          <a class="dropdown-item" href="#/vehicles">Vozila</a>
+          <a class="dropdown-item" href="#/korisnici">Korisnika</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a  class="nav-link" data-toggle="modal" href="#/home" data-target="#exampleModal" >Pretraga</a>
+      </li>
+      <li class="nav-item">
+      	<a class="nav-link" href="#/orders">Porudzbine</a>
+      </li>
+    </ul>
+   
+      <a class="btn btn-outline-primary mr-1" role="button" aria-pressed="true" href="#/user">{{user.username}}</a>
+      <button id="currState" class="btn btn-primary" ng-click="logout()">{{currState}}</button> 
+    </div>
+</nav>
+
+<div class="container">
+<div class="row">
+	<div class="col-lg-8">
+	<h2 class="alignT">Kategorije restorana</h2>
+	<categories />
+	</div>
+	
+	<div class="col-lg-4">
+		<order/>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-4">
+	<h4>Lista omiljenih jela</h4>
+	<div  class="list-group " ng-repeat="a in topJela  " >
+  <a id="{{a.name}}{{a.idParent}}Jelo" class=" disabled  list-group-item d-flex list-group-item-action mt-1 justify-content-between" >
+   {{a.name}}, Restoran: {{a.nameRest}}
+  </a>
+</div>
+	</div>
+	<div class="col-lg-4">
+		<h4> Lista omiljenih pica</h4>
+		<div  class="list-group " ng-repeat="a in topPica  " >
+	  			<a id="{{a.name}}{{a.parentId}Pice" class=" disabled  list-group-item d-flex list-group-item-action mt-1 justify-content-between" >
+	  		 {{a.name}},Restoran: {{a.nameRest}}
+			  </a>
+		</div>
+	</div>
+</div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Pretraga</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <h4>Restorani:</h4>
+          <input class="form-control" type="text" id="pretRestName" placeholder="Naziv">
+          <input class="form-control" type="text" id="pretRestAddress" placeholder="Adresa">
+          <select class="custom-select" id="pretRestCategories">
+          	<option value="non" selected></option>
+		    <option value="Domaca_kuhinja" >Domaca kuhinja</option>
+		    <option value="Rostilj">Rostilj</option>
+		    <option value="Kineski_restoran">Kineski restoran</option>
+		    <option value="Indijski_restoran">Indijski restoran</option>
+		    <option value="Poslasticarnica">Poslasticarnica</option>
+		    <option value="Picerija">Picerija</option>
+  		  </select>
+  		  <h4>Artikli</h4>
+  		  <select class="custom-select" id="pretArtType">
+  		  	<option value="non" selected></option>
+			<option value="Jelo" >Jelo</option>
+			<option value="Pice" >Pice</option>
+		  </select>
+		  <input class="form-control" type="text" id="pretArtName" placeholder="Naziv">   
+  			<div class="form-group">
+            <labelclass="col-form-label">Cijena:</label>
+            <input type="number"  id="pretArtPriceFrom" placeholder="OD">
+            <input type="number"  id="pretArtPriceTo" placeholder="DO">
+          </div>
+           
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="filtriraj()">Filtriraj</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,68 @@
+<div ng-controller="userController">
+<div class="container">
+<h2 >Profil korisnika</h2>
+<a href="#/home" class="float-right " > Vrati se na pocetnu stranicu</a>
+<div class="row">
+<div class="col-md-3">
+<img src="user.png" alt="user" style="width: 200px ; height: 200px" class="rounded border border-secondary" >
+</div>
+<div class="col-md-4">
+<label  class="ml-1">Korisnicko ime:</label>
+<label class="ml-1">{{user.username}}</label>
+<br>
+<label  class="ml-1 ">Ime:</label>
+<label class="ml-1">{{user.name}}</label>
+<br>
+<label  class="ml-1 ">Prezime:</label>
+<label class="ml-1">{{user.surname}}</label>
+<br>
+<label  class="ml-1 ">Lozinka:</label>
+<label class="ml-1">{{user.password}}</label>
+<br>
+<label  class="ml-1 ">Kontakt telefon:</label>
+<label class="ml-1">{{user.num}}</label>
+<br>
+<label  class="ml-1 ">Email:</label>
+<label class="ml-1">{{user.email}}</label>
+<br>
+<label  class="ml-1 ">Datum registracije:</label>
+<label class="ml-1">{{user.date}}</label>        
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-8">
+<h2 class="alignT">Istorija porudzbina:</h2>
+
+<div class="accordion" id="accordionExample" ng-repeat="o in user.orders | filter : {status : 1}" >
+	   <div class="card">
+		    <div class="card-header" id="headingOne">
+			            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{o.id}}" aria-expanded="false" ng-click="setSelectedRes(o)" >
+				       	Stanje: {{o.state}} , Datum porudzbine: {{o.date}}
+				       </button>
+		    </div>
+		
+		    <div id="{{o.id}}" class="collapse"  data-parent="#accordionExample">
+			      <div class="card-body" >
+				       <div  class="list-group" id="listRest" ng-repeat="a in o.articles  ">
+					      <a id="{{a.id}}{{a.name}}" class="list-group-item list-group-item-action" data-toggle="list" ng-click="setCurrA(a)" >
+					      {{a.article.name}}
+					   	  </a>
+				  	  </div>
+			      </div>
+		    </div>
+	  </div>
+  </div>
+</div>
+<div class="col-md-4">
+<h2 class="alignT">Omiljeni restorani</h2>
+<div  class="list-group " ng-repeat="r in user.resta | filter : {status : 1} " >
+  <a id="{{r.id}}" class="list-group-item d-flex list-group-item-action mt-1 justify-content-between" >
+   {{r.name}}
+  </a>
+</div>
+</div>
+</div>
+
+</div>
+</div>

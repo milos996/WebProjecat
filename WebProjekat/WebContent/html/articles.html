@@ -1,0 +1,69 @@
+<div ng-controller="articlesController">
+<div class="container">
+<div class="row">
+<div class="col-lg-4 ml-auto">
+<h2 class="">Izmjena artikala</h2>
+</div>
+<div class="col-lg-4 ml-auto">
+<a href="#/home" class="float-right " > Vrati se na pocetnu stranicu</a>
+</div>
+</div>
+
+<div class="row">
+<div class="col-lg-8">
+
+
+    
+  <div class="accordion" id="accordionExample" ng-repeat="r in restaurants | filter : {status : 1} " >
+	   <div class="card">
+		    <div class="card-header" id="headingOne">
+			            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{r.id}}" aria-expanded="false" ng-click="setSelectedRes(r)" >
+				       <div class="d-flex w-100 justify-content-between">
+					      <h5 class="mb-1">{{r.name}}</h5>
+					       <small>{{r.address}}</small>
+					    </div>
+					    <p class="mb-1">{{r.categories}}</p>
+				       </button>
+		    </div>
+		
+		    <div id="{{r.id}}" class="collapse"  data-parent="#accordionExample">
+			      <div class="card-body" >
+				       <div  class="list-group" id="listRest" ng-repeat="a in r.offer | filter : {status : 1} ">
+					      <a id="{{a.id}}{{a.name}}" class="list-group-item list-group-item-action" data-toggle="list" ng-click="setCurrA(a)" >
+					      {{a.name}}
+					   	  </a>
+				  	  </div>
+			      </div>
+		    </div>
+	  </div>
+  </div>
+ 
+  
+</div>
+
+
+
+<div class="col-lg-4">
+<form>
+	<select class="custom-select" id="type">
+	<option value="Jelo" selected>Jelo</option>
+	<option value="Pice" selected>Pice</option>
+	</select>
+   <input type="text" class="form-control" id="name" placeholder="Naziv jela/pica" >
+   <input type="text" class="form-control" id="price" placeholder="Cijena">
+   <textarea class="form-control" id="des" rows="3" placeholder="Opis"></textarea>
+   <input type="text" class="form-control" id="kol" placeholder="Kolicina u g/ml u zavisnosti od vrste artikla">
+   <input id="restoran" class="form-control" type="text" placeholder="Restoran" readonly> 
+	
+  <div class="btn-group mt-1" role="group" >
+  <button type="button" class="btn btn-primary" ng-click="addA()">Dodaj</button>
+  <button type="button" class="btn btn-success" ng-click="editA()">Izmjeni</button>
+  <button type="button" class="btn btn-danger" ng-click="deleteA()">Obrisi</button>
+</div>
+  <button class="btn btn-outline-primary mt-1 ml-3	" ng-click="clearFields()">Ocisti polja</button>
+</form>
+</div>
+</div>
+</div>
+
+</div>

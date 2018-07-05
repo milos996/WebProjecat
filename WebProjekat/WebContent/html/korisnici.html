@@ -1,0 +1,27 @@
+<div ng-controller="korisniciController">
+<div class="container">
+<div class="row">
+<div class="col-lg-4 ml-auto">
+<h2 class="">Izmjena korisnika</h2>
+</div>
+<div class="col-lg-4 ml-auto">
+<a href="#/home" class="float-right " > Vrati se na pocetnu stranicu</a>
+</div>
+</div>
+
+<div class="row">
+<div class="col-lg-8">
+<div class="col-lg-6">
+<div  class="list-group " ng-repeat="u in users" >
+  <a id="{{u.username}}" class="list-group-item d-flex list-group-item-action mt-1 ">
+   {{u.username}} : {{u.type}}
+	<button class="btn btn-outline-primary float-right" ng-click="setKupac(u)"> Kupac</button>
+	<button class="btn btn-outline-primary float-right" ng-click="setDostavljac(u)"> Dostavljac</button>
+	<button class="btn btn-outline-primary float-right" ng-click="setAdmin(u)"> Admin</button>
+  </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

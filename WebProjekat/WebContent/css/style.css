@@ -1,0 +1,31 @@
+.alignT {
+	text-align : center;
+}
+
+body {
+	margin : 20px 0px 0px 20px ;
+	
+}
+
+.margin{
+	margin-left : 20px;	
+}
+
+
+
+registerDiv #username::placeholder{
+	color : red;
+}
+
+nav {
+	
+	background-color: #e3f2fd;
+}
+input , select, textarea{
+	margin-bottom: 5px;
+}
+
+#homeDiv .container {
+	margin-top : 20px;
+}
+

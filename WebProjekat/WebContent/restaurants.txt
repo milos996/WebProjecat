@@ -1,0 +1,3 @@
+0 Restoran1 adresa1 Domaca_kuhinja,1,
+1 Macaaaak asd Indijski_restoran,1,
+2 Buuu asd Domaca_kuhinja,1,
